@@ -19,13 +19,24 @@ The Pot source has no identified pump, valve or relay irrigation-control path. C
 
 The sensing circuit is designed to convert a capacitance-dependent response into an analog voltage. The application powers the sensing peripherals, applies excitation, waits for settling, samples the inputs, compares the mapped soil reading with the potentiometer setting, and then removes excitation and peripheral power. RGB provides a local interface; serial output supports development and calibration.
 
-The intended MCU family is STC8H1K08, using C with Keil C51 extensions. The actual MCU marking, clock configuration and assembled board revision remain to be confirmed. The associated hardware design uses capacitive sensing, analog conditioning, battery monitoring and USB charging; those design files are not included in this candidate.
+The intended MCU family is STC8H1K08, using C with Keil C51 extensions. The actual MCU marking, clock configuration and assembled board revision remain to be confirmed. The associated hardware design uses capacitive sensing, analog conditioning, battery monitoring and USB charging. Native CAD and BOM files are not included; historical display views are available below.
+
+## Hardware design showcase
+
+See the [hardware overview](hardware/HARDWARE_OVERVIEW.md) for the capacitive sensing, analog conditioning, MCU interface and power design, with a [historical schematic](hardware/images/pot-schematic-historical-2025-09-18.png).
+
+![Historical FloraGuard Pot PCB layer overlay](hardware/images/pot-pcb-historical-overlay.png)
+
+Historical design views only: these are not manufacturing files or fresh exports from the current native design. The historical schematic differs from the retained native files at GC1 and RF2; the overview records the values and remaining checks. The PCB image is a monochrome layer overlay, not a verified assembly drawing. No manufacturing or hardware-test pass is claimed.
 
 ## Contents
 
 ```text
 firmware/                       Application C files and local headers
   reference_unbuilt/            Separate battery-calibration entry point
+hardware/
+  HARDWARE_OVERVIEW.md           Historical schematic and PCB views
+  images/                       Historical PNGs, not manufacturing files
 docs/
   BUILDING.md                   Missing dependencies and future build procedure
   FIRMWARE_NOTES.md             Static findings and implementation limitations
@@ -34,7 +45,7 @@ NEXT_STEPS.md                   Remaining owner confirmations
 
 Read the [build status](docs/BUILDING.md), [firmware notes](docs/FIRMWARE_NOTES.md) and [next steps](NEXT_STEPS.md).
 
-This subset intentionally excludes the original Keil startup file and project file, vendor/compiler headers, HEX files, hardware binaries, historical PDF/BOM exports and local provenance records. It cannot be built directly as supplied. See the build guide for the missing items; no dependencies have been installed or substituted.
+This subset intentionally excludes the original Keil startup file and project file, vendor/compiler headers, HEX files, native CAD files, original PDF/BOM exports and local provenance records. It cannot be built directly as supplied. See the build guide for the missing items; no dependencies have been installed or substituted.
 
 ## Evidence and limitations
 
